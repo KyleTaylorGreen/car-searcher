@@ -14,3 +14,7 @@ def create_combined_csv():
     all_dfs = [pd.read_csv(csv) for csv in csvs]
     # write the total concatenation of all csvs to a file
     pd.concat(all_dfs).reset_index().drop(columns='index').to_csv('all_cars.csv', index=False)
+
+
+if __name__ == '__main__':
+    create_combined_csv()

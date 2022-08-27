@@ -4,7 +4,8 @@ import regex as re
 from bs4 import BeautifulSoup
 import pandas as pd
 
-cities = ['sanmarcos', 'sanantonio', 'austin']
+cities = ['sanmarcos', 'sanantonio', 'austin', 'collegestation', 'corpuschristi',
+          'houston', 'killeen', 'sanangelo', 'victoriatx']
 urls = [f'https://{city}.craigslist.org/search/cta?purveyor=owner' for city in cities]
 
 max_pages = {}

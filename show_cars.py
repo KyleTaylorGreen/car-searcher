@@ -45,6 +45,10 @@ if __name__ == '__main__':
     df['make'] = df.year_make_model.apply(make)
     df['model'] = df.year_make_model.apply(model)
 
+    df['trim'] = df.apply(lambda x: x.post_title.split(x.model)[1], axis=1)
+    for elem in ['make', 'model']:
+        df[elem] = df[elem].apply(lambda x: x.lower())
+
     # save new info to csv
-    df.to_csv('all_cars.csv')
+    df.to_csv('all_cars.csv', index=False)
     print(df)
