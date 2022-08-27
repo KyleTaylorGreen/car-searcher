@@ -1,0 +1,16 @@
+import os
+import pandas as pd
+
+def create_combined_csv():
+    # set relative path
+    path = 'car_csvs/'
+
+    # create list to hold all file names
+    csvs = []
+    for file in os.listdir(path):
+        csvs.append(f'car_csvs/{file}')
+    
+    # create list of DataFrames of all csvs
+    all_dfs = [pd.read_csv(csv) for csv in csvs]
+    # write the total concatenation of all csvs to a file
+    pd.concat(all_dfs).reset_index().drop(columns='index').to_csv('all_cars.csv', index=False)
